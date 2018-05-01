@@ -200,7 +200,7 @@ DATASETS = {
             _DATA_DIR + '/VOC2012/annotations/voc_2012_trainval.json',
         DEVKIT_DIR:
             _DATA_DIR + '/VOC2012/VOCdevkit2012'
-    }
+    },
 #add security dataset
     'security_20180501_train': {
         IM_DIR:
@@ -213,5 +213,5 @@ DATASETS = {
             _DATA_DIR + '/security/test20180501',
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_test20180501.json'
-    },
+    }
 }

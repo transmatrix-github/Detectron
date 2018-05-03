@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "tools/train_net.py", line 26, in <module>
-    import cv2  # NOQA (Must import before importing caffe2 due to bug in cv2)
-ImportError: No module named cv2

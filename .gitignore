@@ -17,7 +17,8 @@ lib/build/
 *.swp
 
 # output and temp files
-# detectron-output/
+detectron-output/
+detectron-visualizations/
 
 # Dataset symlinks
 lib/datasets/data/*

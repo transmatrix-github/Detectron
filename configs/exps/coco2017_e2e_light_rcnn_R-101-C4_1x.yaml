@@ -1,4 +1,4 @@
-ODEL:
+MODEL:
   TYPE: generalized_rcnn
   CONV_BODY: ResNet.add_ResNet101_conv4_body
   NUM_CLASSES: 81

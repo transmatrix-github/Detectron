@@ -31,8 +31,6 @@ import utils.boxes as box_utils
 
 logger = logging.getLogger(__name__)
 
-import pdb
-
 
 def get_rpn_blob_names(is_training=True):
     """Blob names used by RPN."""
@@ -174,15 +172,8 @@ def _get_rpn_blobs(im_height, im_width, foas, all_anchors, gt_boxes):
         anchor_to_gt_max = anchor_by_gt_overlap[np.arange(num_inside),
                                                 anchor_to_gt_argmax]
 
-        if len(anchor_by_gt_overlap) == 0:
-	    print(len(gt_boxes))
-            print(gt_boxes)
-            print(len(anchors))
         # Map from gt box to an anchor that has highest overlap
-        try:
-            gt_to_anchor_argmax = anchor_by_gt_overlap.argmax(axis=0)
-        except Exception as e:
-            pdb.set_trace()
+        gt_to_anchor_argmax = anchor_by_gt_overlap.argmax(axis=0)
         # For each gt box, amount of overlap with most overlapping anchor
         gt_to_anchor_max = anchor_by_gt_overlap[
             gt_to_anchor_argmax,

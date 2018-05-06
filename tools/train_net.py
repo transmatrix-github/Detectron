@@ -40,6 +40,10 @@ from utils.logging import setup_logging
 import utils.c2
 import utils.train
 
+# unicode
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 utils.c2.import_contrib_ops()
 utils.c2.import_detectron_ops()
 

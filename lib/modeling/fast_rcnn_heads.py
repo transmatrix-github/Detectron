@@ -113,7 +113,7 @@ def add_roi_2mlp_head(model, blob_in, dim_in, spatial_scale):
 
 def add_roi_light_head(model, blob_in, dim_in, spatial_scale):
 	""" add a light head with 1 conv + roi + 1 FC layers """
-	    x1_1 = model.Conv(
+	x1_1 = model.Conv(
         blob_in, # s,
         'convx1_1',
         dim_in,

@@ -113,70 +113,70 @@ def add_roi_2mlp_head(model, blob_in, dim_in, spatial_scale):
 
 def add_roi_light_head(model, blob_in, dim_in, spatial_scale):
     """ add a light head with 1 conv + roi + 1 FC layers """
-    x1_1 = model.Conv(
-        blob_in, # s,
-        'convx1_1',
-        dim_in,
-        256,
-        kernel=[15, 1],
-        pad_t = 7,
-        pad_b = 7,
-        pad_r = 0,
-        pad_l = 0,
-        stride=1,
-        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
-        bias_init=('ConstantFill', {'value': 0.})
-    )
-    x1_1 = model.Relu(x1_1, x1_1)
-    x1_2 = model.Conv(
-        x1_1,
-        'convx1_2',
-        256,
-        490,
-        kernel=[1, 15],
-        pad_t = 0,
-        pad_b = 0,
-        pad_r = 7,
-        pad_l = 7,
-        stride=1,
-        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
-        bias_init=('ConstantFill', {'value': 0.})
-    )
-    x1_2 = model.Relu(x1_2, x1_2)
-    x2_1 = model.Conv(
-        blob_in, # s,
-        'convx2_1',
-        dim_in,
-        256,
-        kernel=[1, 15],
-        pad_t = 0,
-        pad_b = 0,
-        pad_r = 7,
-        pad_l = 7,
-        stride=1,
-        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
-        bias_init=('ConstantFill', {'value': 0.})
-    )
-    x2_1 = model.Relu(x2_1, x2_1)
-    x2_2 = model.Conv(
-        x2_1,
-        'convx2_2',
-        256,
-        490,
-        kernel=[15, 1],
-        pad_t = 7,
-        pad_b = 7,
-        pad_r = 0,
-        pad_l = 0,
-        stride=1,
-        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
-        bias_init=('ConstantFill', {'value': 0.})
-    )
-    x2_2 = model.Relu(x2_2, x2_2)
-    light_head = model.net.Sum(['convx1_2', 'convx2_2'], 'light_head') 
+    # x1_1 = model.Conv(
+    #     blob_in, # s,
+    #     'convx1_1',
+    #     dim_in,
+    #     256,
+    #     kernel=[15, 1],
+    #     pad_t = 7,
+    #     pad_b = 7,
+    #     pad_r = 0,
+    #     pad_l = 0,
+    #     stride=1,
+    #     weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+    #     bias_init=('ConstantFill', {'value': 0.})
+    # )
+    # x1_1 = model.Relu(x1_1, x1_1)
+    # x1_2 = model.Conv(
+    #     x1_1,
+    #     'convx1_2',
+    #     256,
+    #     490,
+    #     kernel=[1, 15],
+    #     pad_t = 0,
+    #     pad_b = 0,
+    #     pad_r = 7,
+    #     pad_l = 7,
+    #     stride=1,
+    #     weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+    #     bias_init=('ConstantFill', {'value': 0.})
+    # )
+    # x1_2 = model.Relu(x1_2, x1_2)
+    # x2_1 = model.Conv(
+    #     blob_in, # s,
+    #     'convx2_1',
+    #     dim_in,
+    #     256,
+    #     kernel=[1, 15],
+    #     pad_t = 0,
+    #     pad_b = 0,
+    #     pad_r = 7,
+    #     pad_l = 7,
+    #     stride=1,
+    #     weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+    #     bias_init=('ConstantFill', {'value': 0.})
+    # )
+    # x2_1 = model.Relu(x2_1, x2_1)
+    # x2_2 = model.Conv(
+    #     x2_1,
+    #     'convx2_2',
+    #     256,
+    #     490,
+    #     kernel=[15, 1],
+    #     pad_t = 7,
+    #     pad_b = 7,
+    #     pad_r = 0,
+    #     pad_l = 0,
+    #     stride=1,
+    #     weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+    #     bias_init=('ConstantFill', {'value': 0.})
+    # )
+    # x2_2 = model.Relu(x2_2, x2_2)
+    # light_head = model.net.Sum(['convx1_2', 'convx2_2'], 'light_head') 
     
     roi_feat = model.RoIFeatureTransform(
-        light_head,
+        blob_in,
         'pool5',
         blob_rois='rois',
         method=cfg.FAST_RCNN.ROI_XFORM_METHOD,

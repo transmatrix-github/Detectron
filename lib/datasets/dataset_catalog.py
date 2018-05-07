@@ -213,5 +213,71 @@ DATASETS = {
             _DATA_DIR + '/security/test20180501',
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_test20180501.json'
+    },
+    'security_train_alg_synthesis': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Alg-Synthesis',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Alg-Synthesis.json'
+    },
+    'security_train_auto_synthesis': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Auto-Software-Synthesis',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Auto-Software-Synthesis.json'
+    },
+    'security_train_dongle_synthesis': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Dongle-Synthesis',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Dongle-Synthesis.json'
+    },
+    'security_train_pro_synthesis': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Pro-Synthesis',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Pro-Synthesis.json'
+    },
+    'security_train_real_package': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Real-Package',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Real-Package.json'
+    },
+    'security_train_real_polyhedron': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Real-Polyhedron',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Real-Polyhedron.json'
+    },
+    'security_train_single_contraband': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Single-Contraband',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Single-Contraband.json'
+    },
+    'security_test_dongle_synthesis': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_Dongle-Synthesis',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_test_Dongle-Synthesis.json'
+    },
+    'security_test_hlx': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_HLX_20180129',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_HLX_20180129.json'
+    },
+    'security_test_mzl': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_MZL_Test_0415',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_test_MZL_Test_0415.json'
+    },
+    'security_test_kongbao': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_KongBao',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_test_KongBao.json'
     }
 }

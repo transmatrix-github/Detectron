@@ -111,6 +111,83 @@ def add_roi_2mlp_head(model, blob_in, dim_in, spatial_scale):
     model.Relu('fc7', 'fc7')
     return 'fc7', hidden_dim
 
+def add_roi_light_head(model, blob_in, dim_in, spatial_scale):
+	""" add a light head with 1 conv + roi + 1 FC layers """
+	    x1_1 = model.Conv(
+        blob_in, # s,
+        'convx1_1',
+        dim_in,
+        256,
+        kernel=[15, 1],
+        pad_t = 7,
+        pad_b = 7,
+        pad_r = 0,
+        pad_l = 0,
+        stride=1,
+        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+        bias_init=('ConstantFill', {'value': 0.})
+    )
+    x1_1 = model.Relu(x1_1, x1_1)
+    x1_2 = model.Conv(
+        x1_1,
+        'convx1_2',
+        256,
+        490,
+        kernel=[1, 15],
+        pad_t = 0,
+        pad_b = 0,
+        pad_r = 7,
+        pad_l = 7,
+        stride=1,
+        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+        bias_init=('ConstantFill', {'value': 0.})
+    )
+    x1_2 = model.Relu(x1_2, x1_2)
+    x2_1 = model.Conv(
+        blob_in, # s,
+        'convx2_1',
+        dim_in,
+        256,
+        kernel=[1, 15],
+        pad_t = 0,
+        pad_b = 0,
+        pad_r = 7,
+        pad_l = 7,
+        stride=1,
+        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+        bias_init=('ConstantFill', {'value': 0.})
+    )
+    x2_1 = model.Relu(x2_1, x2_1)
+    x2_2 = model.Conv(
+        x2_1,
+        'convx2_2',
+        256,
+        490,
+        kernel=[15, 1],
+        pad_t = 7,
+        pad_b = 7,
+        pad_r = 0,
+        pad_l = 0,
+        stride=1,
+        weight_init=(cfg.MRCNN.CONV_INIT, {'std': 0.001}),
+        bias_init=('ConstantFill', {'value': 0.})
+    )
+    x2_2 = model.Relu(x2_2, x2_2)
+    light_head = model.net.Sum(['convx1_2', 'convx2_2'], 'light_head') 
+    
+    roi_feat = model.RoIFeatureTransform(
+        light_head,
+        'pool5',
+        blob_rois='rois',
+        method=cfg.FAST_RCNN.ROI_XFORM_METHOD,
+        resolution=cfg.FAST_RCNN.ROI_XFORM_RESOLUTION,
+        sampling_ratio=cfg.FAST_RCNN.ROI_XFORM_SAMPLING_RATIO,
+        spatial_scale=spatial_scale
+    )
+    roi_size = cfg.FAST_RCNN.ROI_XFORM_RESOLUTION
+    fc7 = model.FC(roi_feat, 'fc7', 490 * roi_size * roi_size, 2048)
+    fc7 = model.Relu('fc7', 'fc7')
+    return fc7, 2048
 
 def add_roi_Xconv1fc_head(model, blob_in, dim_in, spatial_scale):
     """Add a X conv + 1fc head, as a reference if not using GroupNorm"""

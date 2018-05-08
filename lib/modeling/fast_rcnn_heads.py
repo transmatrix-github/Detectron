@@ -185,7 +185,7 @@ def add_roi_light_head(model, blob_in, dim_in, spatial_scale):
         spatial_scale=spatial_scale
     )
     roi_size = cfg.FAST_RCNN.ROI_XFORM_RESOLUTION
-    fc7 = model.FC(roi_feat, 'fc7', 490 * roi_size * roi_size, 2048)
+    fc7 = model.FC(roi_feat, 'fc7', dim_in * roi_size * roi_size, 2048)
     fc7 = model.Relu('fc7', 'fc7')
     return fc7, 2048
 

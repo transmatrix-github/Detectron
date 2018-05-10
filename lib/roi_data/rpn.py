@@ -175,9 +175,11 @@ def _get_rpn_blobs(im_height, im_width, foas, all_anchors, gt_boxes):
                                                 anchor_to_gt_argmax]
 
         if len(anchor_by_gt_overlap) == 0:
-	    print(len(gt_boxes))
-            print(gt_boxes)
-            print(len(anchors))
+#            print(gt_boxes)
+	    print('Number of gt_boxes is %d' % len(gt_boxes))
+            print('Number of anchors is %d' % len(anchors))
+            print('Number of all anchors is %d ' % len(all_anchors))
+            print('image width = %d, height = %d' %(im_width, im_height))
         # Map from gt box to an anchor that has highest overlap
         try:
             gt_to_anchor_argmax = anchor_by_gt_overlap.argmax(axis=0)

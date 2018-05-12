@@ -256,19 +256,19 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_train_Single-Contraband.json'
     },
-    'security_test_dongle_synthesis': {
+    'security_val_dongle_synthesis': {
         IM_DIR:
             _DATA_DIR + '/security/test_Dongle-Synthesis',
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_test_Dongle-Synthesis.json'
     },
-    'security_test_hlx': {
+    'security_val_hlx': {
         IM_DIR:
             _DATA_DIR + '/security/test_HLX_20180129',
         ANN_FN:
-            _DATA_DIR + '/security/annotations/instances_HLX_20180129.json'
+            _DATA_DIR + '/security/annotations/instances_test_HLX_20180129.json'
     },
-    'security_test_mzl': {
+    'security_val_mzl': {
         IM_DIR:
             _DATA_DIR + '/security/test_MZL_Test_0415',
         ANN_FN:

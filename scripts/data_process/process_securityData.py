@@ -243,6 +243,7 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
             continue
         max_ratio = 4
         if width > height*max_ratio or height > width*max_ratio:
+            print 'Abnormal aspect ratio, width = %d, height = %d' %(width, height)
             error_list.append((1, line))
             continue
 

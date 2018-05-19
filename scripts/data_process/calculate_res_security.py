@@ -80,7 +80,7 @@ def get_threshold_by_false_rate(roc, fr):
     return roc[-1]
 
 def get_res_folder(model):
-    if len(model) < 8 and:
+    if len(model) < 8:
         model = 'security' + model[1:]
         
     if model == 'security7' or model == 'security4' or model == 'security3':

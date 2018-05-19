@@ -2,6 +2,7 @@ import json
 import os
 import sys
 
+MAX_IMAGE_NUM = 100000
 #check detection errors
 def calc_iou(r1, r2):
     ox1 = max(r1[0], r2[0])
@@ -17,7 +18,7 @@ def load_json_file(json_file):
 
 def group_bboxs(obj_list):    
     im_num = 0
-    im_bboxs = [list() for i in range(len(obj_list))]
+    im_bboxs = [list() for i in range(MAX_IMAGE_NUM)]
     for obj in obj_list:
         im_bboxs[obj['image_id']].append(obj)
         im_num = max(im_num, obj['image_id'])

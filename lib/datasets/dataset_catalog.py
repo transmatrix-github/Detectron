@@ -274,10 +274,22 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_val_MZL_Test_0415.json'
     },
-    'security_test_kongbao': {
+    'security_test_mzl_kongbao': {
         IM_DIR:
-            _DATA_DIR + '/security/test_KongBao',
+            _DATA_DIR + '/security/test_MZL_KongBao_Image',
         ANN_FN:
-            _DATA_DIR + '/security/annotations/instances_test_KongBao.json'
+            _DATA_DIR + '/security/annotations/instances_test_MZL_KongBao_Image.json'
+    },
+    'security_test_travel_packages': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_Travel-Packages',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_test_Travel-Packages.json'
+    },
+    'security_test_zhongyunzhihui': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_ZhongYunZhiHui',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_test_ZhongYunZhiHui.json'
     }
 }

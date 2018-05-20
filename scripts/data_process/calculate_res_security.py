@@ -38,12 +38,12 @@ def judge_detection_results(dets, gt=None, iou=0.5):
         else:
             # normal image, find the max_score for corrected ones.            
             max_score = 0
+#            for obj1 in im_det:
+#                max_score = max(max_score, obj1['score'])                        
             for obj1 in im_det:
-                max_score = max(max_score, obj1['score'])                        
-#             for obj1 in im_det:
-#                 for obj2 in gt[im_idx]:
-#                     if calc_iou(obj1['bbox'], obj2['bbox']) >= iou:
-#                         max_score = max(max_score, obj1['score'])                        
+                for obj2 in gt[im_idx]:
+                    if calc_iou(obj1['bbox'], obj2['bbox']) >= iou:
+                        max_score = max(max_score, obj1['score'])                        
             judge = (1, max_score)
             
         res.append(judge)    

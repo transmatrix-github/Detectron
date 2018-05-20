@@ -89,7 +89,7 @@ def get_res_folder(model):
     if model == 'security7' or model == 'security4' or model == 'security3':
         return model + '_e2e_faster_rcnn_R-101-FPN_1x.yaml'
     elif model == 'security4_ms' or model == 'security3_ms':
-        return model[:8] + '_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml'
+        return model[:9] + '_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml'
     else:
         print 'None-Supported model %s' % model
         raise

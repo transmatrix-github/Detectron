@@ -110,8 +110,15 @@ val_data = 'security_val_mzl'
 test_data = 'security_test_mzl_kongbao'
 model_name =  get_res_folder(sys.argv[1])
 gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_val_MZL_Test_0415.json')
-val_res_file = os.path.join(output_root, model_name, 'test/%s/generalized_rcnn/bbox_%s_results.json' % (val_data, val_data))
-test_res_file = os.path.join(output_root, model_name, 'test/%s/generalized_rcnn/bbox_%s_results.json' % (test_data, test_data))
+if model_name[0] == 's':
+    val_res_file = os.path.join(output_root, model_name, 'test/test/%s/generalized_rcnn/bbox_%s_results.json' % (val_data, val_data))
+    test_res_file = os.path.join(output_root, model_name, 'test/test/%s/generalized_rcnn/bbox_%s_results.json' % (test_data, test_data))
+elif model_name[0] == 'r':
+    val_res_file = os.path.join(output_root, model_name, 'test/%s/retinanet/bbox_%s_results.json' % (val_data, val_data))
+    test_res_file = os.path.join(output_root, model_name, 'test/%s/retinanet/bbox_%s_results.json' % (test_data, test_data))
+else:
+    print 'None-Supported model %s' % model_name
+    raise
 det_data = load_json_file(val_res_file)
 det_data = group_bboxs(det_data)
 gt_data = group_bboxs(gt_data['annotations'])

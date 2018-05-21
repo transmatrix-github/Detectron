@@ -83,17 +83,19 @@ def get_threshold_by_false_rate(roc, fr):
     return roc[-1]
 
 def get_res_folder(model):
-    if len(model) < 8:
-        model = 'security' + model[1:]
-        
-    if model == 'security7' or model == 'security4' or model == 'security3':
-        return model + '_e2e_faster_rcnn_R-101-FPN_1x.yaml'
-    elif model == 'security4_ms' or model == 'security3_ms':
-        return model[:9] + '_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml'
-    else:
+    model_map = {'s3': 'security3_e2e_faster_rcnn_R-101-FPN_1x.yaml',
+		 's4': 'security4_e2e_faster_rcnn_R-101-FPN_1x.yaml',
+		 's7': 'security7_e2e_faster_rcnn_R-101-FPN_1x.yaml',
+		 's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
+		 's4_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
+		 'r3': 'security3_retinanet_R-101-FPN_1x',
+		 'r4': 'security4_retinanet_R-101-FPN_1x'}
+
+    if model not in model_map.keys():
         print 'None-Supported model %s' % model
         raise
-    return None
+
+    return model_map[model]
     
 # plot_roc
 if __name__ == '__main__':

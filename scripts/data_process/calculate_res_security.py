@@ -88,8 +88,8 @@ def get_res_folder(model):
 		 's7': 'security7_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
 		 's4_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
-		 'r3': 'security3_retinanet_R-101-FPN_1x',
-		 'r4': 'security4_retinanet_R-101-FPN_1x'}
+		 'r3': 'security3_retinanet_R-101-FPN_1x.yaml',
+		 'r4': 'security4_retinanet_R-101-FPN_1x.yaml'}
 
     if model not in model_map.keys():
         print 'None-Supported model %s' % model
@@ -110,8 +110,8 @@ val_data = 'security_val_mzl'
 test_data = 'security_test_mzl_kongbao'
 model_name =  get_res_folder(sys.argv[1])
 gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_val_MZL_Test_0415.json')
-val_res_file = os.path.join(output_root, model_name, 'test/test/%s/generalized_rcnn/bbox_%s_results.json' % (val_data, val_data))
-test_res_file = os.path.join(output_root, model_name, 'test/test/%s/generalized_rcnn/bbox_%s_results.json' % (test_data, test_data))
+val_res_file = os.path.join(output_root, model_name, 'test/%s/generalized_rcnn/bbox_%s_results.json' % (val_data, val_data))
+test_res_file = os.path.join(output_root, model_name, 'test/%s/generalized_rcnn/bbox_%s_results.json' % (test_data, test_data))
 det_data = load_json_file(val_res_file)
 det_data = group_bboxs(det_data)
 gt_data = group_bboxs(gt_data['annotations'])

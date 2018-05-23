@@ -30,6 +30,12 @@ TRAIN:
 #  MAX_SIZE: 800
   BATCH_SIZE_PER_IM: 512
   RPN_PRE_NMS_TOP_N: 2000  # Per FPN level
+###### optional ####
+# forground faction, default is 0.25, maybe lower would make false rate lower
+#  FG_FRACTION: 0.1
+# difficulty of background, default is [0.0 - 0.5], may be 0.1 - 0.5? not too difficult
+#  BG_THRESH_HI: 0.5
+#  BG_THRESH_LO: 0.1
 TEST:
   DATASETS: ('security_val_hlx', 'security_val_mzl', 'security_val_dongle_synthesis', 'security_test_zhongyunzhihui', 'security_test_mzl_kongbao', 'security_test_travel_packages')
   SCALE: 800

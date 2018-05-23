@@ -85,12 +85,16 @@ def get_threshold_by_false_rate(roc, fr):
 def get_res_folder(model):
     model_map = {
          's1': 'security1_e2e_faster_rcnn_R-101-FPN_1x.yaml',
+         's1a': 'security1a_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
+         's2': 'security2_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
          's3': 'security3_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's4': 'security4_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's7': 'security7_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
 		 's4_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
-		 'r1': 'security1_retinanet_R-101-FPN_1x.yaml',		 
+		 'r1': 'security1_retinanet_R-101-FPN_1x.yaml',
+		 'r1a': 'security1a_retinanet_R-101-FPN_1x.yaml',		 		 		 
+		 'r2': 'security2_retinanet_R-101-FPN_1x.yaml',
 		 'r3': 'security3_retinanet_R-101-FPN_1x.yaml',
 		 'r4': 'security4_retinanet_R-101-FPN_1x.yaml'}
 

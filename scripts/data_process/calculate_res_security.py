@@ -88,6 +88,7 @@ def get_res_folder(model):
          's1a': 'security1a_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
          's2': 'security2_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
          's3': 'security3_e2e_faster_rcnn_R-101-FPN_1x.yaml',
+         's3_fg0.1': 'security3_e2e_faster_rcnn_R-101-FPN_fg0.1_1x.yaml',         
 		 's4': 'security4_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's7': 'security7_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',

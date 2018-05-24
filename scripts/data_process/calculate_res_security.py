@@ -155,7 +155,7 @@ print 'saved pn_curve.'
 
 print '###################################'
 print get_threshold_by_false_rate(roc, 0.01)
-print get_threshold_by_hit_rate(roc, 0.99)
+print get_threshold_by_hit_rate(roc, 0.98)
 print '###################################'
 print get_threshold_by_false_rate(roc, 0.0312)
 print get_threshold_by_false_rate(roc, 0.059)

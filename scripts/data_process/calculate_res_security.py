@@ -82,10 +82,10 @@ def get_threshold_by_false_rate(roc, fr):
             return roc[idx-1]
     return roc[-1]
     
-def get_threshold_by_hit_rate(roc, fr):
+def get_threshold_by_hit_rate(roc, hr):
     for (idx, item) in enumerate(roc):
-        if item[0] < fr:
-            return roc[idx-1]
+        if item[0] > hr:
+            return roc[idx]
     return roc[-1]    
 
 def get_res_folder(model):
@@ -153,11 +153,16 @@ with open(os.path.join(output_root, model_name, 'pn_curve.txt'), 'wt') as fp:
         fp.write('%f %f %f\n' % line)
 print 'saved pn_curve.'
 
-print '###################################'
+print '##########Thres by false rate #############'
 print get_threshold_by_false_rate(roc, 0.01)
-print get_threshold_by_hit_rate(roc, 0.98)
-print '###################################'
 print get_threshold_by_false_rate(roc, 0.0312)
 print get_threshold_by_false_rate(roc, 0.059)
 print get_threshold_by_false_rate(roc, 0.074)
 print get_threshold_by_false_rate(roc, 0.0913)
+print '###########Thres by hit rate  #############'
+print get_threshold_by_hit_rate(roc, 0.8)
+print get_threshold_by_hit_rate(roc, 0.9)
+print get_threshold_by_hit_rate(roc, 0.95)
+print get_threshold_by_hit_rate(roc, 0.98)
+print get_threshold_by_hit_rate(roc, 0.99)
+

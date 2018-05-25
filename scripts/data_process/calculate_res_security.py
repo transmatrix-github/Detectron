@@ -93,8 +93,11 @@ def get_res_folder(model):
          's1': 'security1_e2e_faster_rcnn_R-101-FPN_1x.yaml',
          's1a': 'security1a_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
          's2': 'security2_e2e_faster_rcnn_R-101-FPN_1x.yaml',         
+         's2p': 'security2p_e2e_faster_rcnn_R-101-FPN_1x.yaml',             
          's3': 'security3_e2e_faster_rcnn_R-101-FPN_1x.yaml',
-         's3_fg0.1': 'security3_e2e_faster_rcnn_R-101-FPN_fg0.1_1x.yaml',         
+         's3_fg0.05': 'security3_e2e_faster_rcnn_R-101-FPN_fg0.05_1x.yaml',         
+         's3_fg0.1': 'security3_e2e_faster_rcnn_R-101-FPN_fg0.1_1x.yaml',
+         's3_bgl0.1': 'security3_e2e_faster_rcnn_R-101-FPN_bgl0.1_1x.yaml',                  
 		 's4': 'security4_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's7': 'security7_e2e_faster_rcnn_R-101-FPN_1x.yaml',
 		 's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
@@ -102,6 +105,7 @@ def get_res_folder(model):
 		 'r1': 'security1_retinanet_R-101-FPN_1x.yaml',
 		 'r1a': 'security1a_retinanet_R-101-FPN_1x.yaml',		 		 		 
 		 'r2': 'security2_retinanet_R-101-FPN_1x.yaml',
+		 'r2p': 'security2_retinanet_R-101-FPN_1x.yaml',		 
 		 'r3': 'security3_retinanet_R-101-FPN_1x.yaml',
 		 'r4': 'security4_retinanet_R-101-FPN_1x.yaml'}
 

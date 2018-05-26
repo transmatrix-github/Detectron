@@ -62,7 +62,7 @@ def generate_roc(wjp, kb):
     #    judged by aboving a given threshold, which will decrease by iterating the sorted scores from 1 to 0.
     wjp_num = len(wjp)
     kb_num = len(kb)
-    print 'In total %d WJP, and %d KB' %(wjp_num, kb_num)
+    print 'In total %d WJP, and %d KB' % (wjp_num, kb_num)
     dets = wjp + kb
     dets.sort(key=lambda x: -x[1])
     wjp_hits = 0

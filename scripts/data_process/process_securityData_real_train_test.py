@@ -218,7 +218,7 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
         else:
             image_path = os.path.join(image_root, line)        
 	# pickup only '_a' image
-        image_name = '.'join(image_path.split('.')[:-1])
+        image_name = '.'.join(image_path.split('.')[:-1])
         if image_name[-2:] != '_a':
             error_list.append((5, line))
             continue

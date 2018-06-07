@@ -16,9 +16,7 @@ data_root = '/home/amax/data/securityData'
 tmp_folder = '/home/amax/data/securityData/tmp_files_realpackage'
 
 
-# train_sets = ['Real-Package_train',
-#              'Real-Package_val']
-train_sets = ['Real-Package_val']
+train_sets = ['Real-Package_train']
 
 datasets = {'train' : train_sets}
 
@@ -217,11 +215,6 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
             label_path = os.path.join(label_root, line[1])
         else:
             image_path = os.path.join(image_root, line)        
-	# pickup only '_a' image
-        image_name = '.'.join(image_path.split('.')[:-1])
-        if image_name[-2:] != '_a':
-            error_list.append((5, line))
-            continue
 
         # get image information
         try:

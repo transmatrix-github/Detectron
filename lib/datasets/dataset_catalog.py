@@ -244,6 +244,18 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_train_Real-Package.json'
     },
+    'security_train_real_package': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Real-Package_val',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Real-Package_val.json'
+    },
+    'security_train_real_package': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Real-Package_train',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Real-Package_train.json'
+    },
     'security_train_real_polyhedron': {
         IM_DIR:
             _DATA_DIR + '/security/train_Real-Polyhedron',

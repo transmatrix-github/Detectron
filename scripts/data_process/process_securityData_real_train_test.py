@@ -216,6 +216,12 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
             label_path = os.path.join(label_root, line[1])
         else:
             image_path = os.path.join(image_root, line)        
+	# pickup only '_a' image
+        image_name = '.'join(image_path.split('.')[:-1])
+        if image_name[-2:] != '_a':
+            error_list.append((5, line))
+            continue
+
         # get image information
         try:
             im = Image.open(image_path)
@@ -228,7 +234,7 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
         max_ratio = 4
         if width > height*max_ratio or height > width*max_ratio:
             print 'Abnormal aspect ratio, width = %d, height = %d' %(width, height)
-            error_list.append((1, line))
+            error_list.append((4, line))
             continue
 
         if is_pair:

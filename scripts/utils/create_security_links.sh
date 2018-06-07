@@ -6,6 +6,7 @@ ln -sn $DATA_ROOT/train/Images/Auto-Software-Synthesis $LINK_ROOT/train_Auto-Sof
 ln -sn $DATA_ROOT/train/Images/Dongle-Synthesis $LINK_ROOT/train_Dongle-Synthesis
 ln -sn $DATA_ROOT/train/Images/Pro-Synthesis $LINK_ROOT/train_Pro-Synthesis
 ln -sn $DATA_ROOT/train/Images/Real-Package $LINK_ROOT/train_Real-Package
+ln -sn $DATA_ROOT/train/Images/Real-Package_others $LINK_ROOT/train_Real-Package_others
 ln -sn $DATA_ROOT/train/Images/Real-Package_train $LINK_ROOT/train_Real-Package_train
 ln -sn $DATA_ROOT/train/Images/Real-Package_val $LINK_ROOT/train_Real-Package_val
 ln -sn $DATA_ROOT/train/Images/Real-Polyhedron $LINK_ROOT/train_Real-Polyhedron

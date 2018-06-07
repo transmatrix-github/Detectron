@@ -16,8 +16,9 @@ data_root = '/home/amax/data/securityData'
 tmp_folder = '/home/amax/data/securityData/tmp_files_realpackage'
 
 
-train_sets = ['Real-Package_train',
-              'Real-Package_val']
+# train_sets = ['Real-Package_train',
+#              'Real-Package_val']
+train_sets = ['Real-Package_val']
 
 datasets = {'train' : train_sets}
 

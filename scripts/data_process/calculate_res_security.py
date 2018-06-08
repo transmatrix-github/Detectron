@@ -83,9 +83,10 @@ print '-------------------------------------------'
 print '%s' % '\t'.join(heads)
 
 for fr in false_rates:
-    line = ['%d'%fr]
+    line = ['%f'%fr]
     for (ci, roc) in enumerate(rocs):
         tmp = get_threshold_by_false_rate(roc, fr)
+        print tmp
         line.append('%f' % tmp[0])
     print '%s' % '\t'.join(line)
 print '-------------------------------------------'

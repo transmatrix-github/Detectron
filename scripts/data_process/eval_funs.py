@@ -80,7 +80,7 @@ def judge_detection_results(dets, gt=None, iou=0.5):
 def generate_rocs(dets, categories):
     print 'number of dets: %d' % len(dets)
     dets.sort(key=lambda x: -x[1])
-    
+    print dets
     counts = [0]*(len(categories)+1)
     for item in dets:
         counts[item[0]] += 1

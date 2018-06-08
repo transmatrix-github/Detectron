@@ -90,7 +90,7 @@ def generate_rocs(dets, categories):
         if x[0] != 0:
             fg_hits += 1
         rocs[0].append((fg_hits*1.0/fg_num, hits[0]*1.0/counts[0], x[1]))
-        rocs[x[0]].append((hist[x[0]]*1.0/counts[x[0]], hits[0]*1.0/counts[0], x[1]))
+        rocs[x[0]].append((hits[x[0]]*1.0/counts[x[0]], hits[0]*1.0/counts[0], x[1]))
     return rocs
 
 

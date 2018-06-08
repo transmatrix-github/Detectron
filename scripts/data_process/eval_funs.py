@@ -75,12 +75,15 @@ def judge_detection_results(dets, gt=None, iou=0.5):
 #     input: judged_detection results, 
 #     output: list of (hit rate, false rate, threshold)
 def generate_rocs(dets, categories):
+    print 'number of dets: %d' % len(dets)
     dets.sort(key=lambda x: -x[1])
     
     counts = [0]*(len(categories)+1)
     for item in dets:
         counts[item[0]] += 1
-        
+
+    print counts
+
     rocs = [list() for c in range(len(categories)+1)]
     hits = [0]*(len(categories)+1)
     fg_hits = 0

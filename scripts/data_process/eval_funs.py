@@ -33,12 +33,14 @@ def judge_detection_results(dets, gt=None, iou=0.5):
     is_kongbao = (gt is None)
     
     res = []    
+    print '%d dets to be judge' % len(dets)
     for im_idx, im_det in enumerate(dets):
         if is_kongbao:            
             max_score = 0
             for obj in im_det:
                 max_score = max(max_score, obj['score'])
             judge = (0, max_score)            
+            res.append(judge) 
         else:
             # normal image, find the max_score for corrected ones.            
             # How to determine an image is correct or not
@@ -59,15 +61,16 @@ def judge_detection_results(dets, gt=None, iou=0.5):
                 max_score = 0
                 for obj2 in gt[im_idx]:
                     if obj1['category_id'] == obj2['category_id'] and calc_iou(obj1['bbox'], obj2['bbox']) >= iou:
-                        max_score = max(max_score, obj1['score'])                        
+			max_score = obj1['score']
+                        break
+                        #max_score = max(max_score, obj1['score'])                        
                 # no matched ground truth
                 if max_score == 0:
                     judge = (0, max_score)
                 else:
                     judge = (obj1['category_id'], max_score)
-    
-            
-        res.append(judge)    
+                res.append(judge)             
+
     return res
 
 # -------------------------------------

@@ -75,20 +75,16 @@ gt_data = group_bboxs(gt_data['annotations'])
 judged_det = judge_detection_results(det_data, gt_data)
 
 categories = ['knife', 'gun']
-rocs = generate_rocs(judged_det, categories)
+roc = generate_rocs(judged_det, categories)
 false_rates = [0.01, 0.03, 0.05, 0.1]
-heads = ['False Rate', 'Overall'] + categories
+heads = ['False Rate', 'Detection Rate', 'Score']
 
 print '-------------------------------------------'
 print '%s' % '\t'.join(heads)
 
 for fr in false_rates:
-    line = ['%f'%fr]
-    for (ci, roc) in enumerate(rocs):
-        tmp = get_threshold_by_false_rate(roc, fr)
-        print tmp
-        line.append('%f' % tmp[0])
-    print '%s' % '\t'.join(line)
+    tmp = get_threshold_by_false_rate(roc, fr)
+    print '%.2f\t%.2f\t%.4f' %(fr*100, roc[0]*100, roc[2])
 print '-------------------------------------------'
         
 # roc = generate_roc(judged_det, judged_det2)

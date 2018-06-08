@@ -39,7 +39,7 @@ def judge_detection_results(dets, gt=None, iou=0.5):
             max_score = 0
             for obj in im_det:
                 max_score = max(max_score, obj['score'])
-            judge = (0, max_score)            
+            judge = (0, max_score, obj['category_id']) # correctness, score, cate
             res.append(judge) 
         else:
             # normal image, find the max_score for corrected ones.            
@@ -66,38 +66,35 @@ def judge_detection_results(dets, gt=None, iou=0.5):
                         #max_score = max(max_score, obj1['score'])                        
                 # no matched ground truth
                 if max_score == 0:
-                    judge = (0, obj1['score'])
+                    judge = (0, obj1['score'], obj1['category_id'])
                 else:
-                    judge = (obj1['category_id'], obj1['score'])
+                    judge = (1, obj1['score'], obj1['category_id'])
                 res.append(judge)             
 
     return res
 
 # -------------------------------------
-# generate roc curve for overall and each category
+# generate roc curve
 #     input: judged_detection results, 
 #     output: list of (hit rate, false rate, threshold)
-def generate_rocs(dets, categories):
-    print 'number of dets: %d' % len(dets)
+def generate_rocs(dets, categories):    
     dets.sort(key=lambda x: -x[1])
-    print dets
-    counts = [0]*(len(categories)+1)
-    for item in dets:
-        counts[item[0]] += 1
-
-    print counts
-
-    rocs = [list() for c in range(len(categories)+1)]
-    hits = [0]*(len(categories)+1)
-    fg_hits = 0
-    fg_num = sum(counts[1:])
+    fg_num = 0
+    bg_num = 0
+    roc = []
     for x in dets:
-        hits[x[0]] += 1
-        if x[0] != 0:
-            fg_hits += 1
-        rocs[0].append((fg_hits*1.0/fg_num, hits[0]*1.0/counts[0], x[1]))
-        rocs[x[0]].append((hits[x[0]]*1.0/counts[x[0]], hits[0]*1.0/counts[0], x[1]))
-    return rocs
+        if x[0] == 0:
+            bg_num += 1
+        else:
+            fg_num += 1
+    
+    for x in dets:
+        if x[0] == 0:
+            fg_count += 1
+        else:
+            bg_count += 1
+        roc.append((fg_count*1.0/fg_num, bg_count*1.0/bg_num, x[1]))
+    return roc
 
 
 def generate_roc(wjp, kb):

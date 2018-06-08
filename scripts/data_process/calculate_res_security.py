@@ -86,7 +86,7 @@ for fr in false_rates:
     line = ['%d'%fr]
     for (ci, roc) in enumerate(rocs):
         tmp = get_threshold_by_false_rate(roc, fr)
-        line.append(tmp[0])
+        line.append('%f' % tmp[0])
     print '%s' % '\t'.join(line)
 print '-------------------------------------------'
         

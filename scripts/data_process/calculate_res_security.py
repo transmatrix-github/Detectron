@@ -29,6 +29,7 @@ def get_res_folder(model):
 	     's3_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
 	     's4_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
 	     'r1': 'security1_retinanet_R-101-FPN_1x.yaml',
+	     'rr1': 'security_r1_retinanet_R-101-FPN_1x.yaml',
 	     'r1a': 'security1a_retinanet_R-101-FPN_1x.yaml',		 		 		 
 	     'r2': 'security2_retinanet_R-101-FPN_1x.yaml',
 	     'r2p': 'security2_retinanet_R-101-FPN_1x.yaml',		 
@@ -76,7 +77,7 @@ judged_det = judge_detection_results(det_data, gt_data)
 
 categories = ['knife', 'gun']
 roc = generate_rocs(judged_det, categories)
-print roc
+# print roc
 false_rates = [0.01, 0.03, 0.05, 0.1]
 heads = ['False Rate', 'Detection Rate', 'Score']
 

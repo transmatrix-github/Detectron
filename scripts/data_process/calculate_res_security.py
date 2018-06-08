@@ -84,7 +84,7 @@ print '%s' % '\t'.join(heads)
 
 for fr in false_rates:
     tmp = get_threshold_by_false_rate(roc, fr)
-    print '%.2f\t%.2f\t%.4f' %(fr*100, roc[0]*100, roc[2])
+    print '%.2f\t%.2f\t%.4f' %(fr*100, tmp[0]*100, tmp[2])
 print '-------------------------------------------'
         
 # roc = generate_roc(judged_det, judged_det2)

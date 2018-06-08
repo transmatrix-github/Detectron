@@ -87,7 +87,8 @@ def generate_rocs(dets, categories):
             bg_num += 1
         else:
             fg_num += 1
-    
+    fg_count = 0
+    bg_count = 0
     for x in dets:
         if x[0] == 0:
             fg_count += 1

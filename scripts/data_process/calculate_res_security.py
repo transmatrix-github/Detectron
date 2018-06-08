@@ -76,6 +76,7 @@ judged_det = judge_detection_results(det_data, gt_data)
 
 categories = ['knife', 'gun']
 roc = generate_rocs(judged_det, categories)
+print roc
 false_rates = [0.01, 0.03, 0.05, 0.1]
 heads = ['False Rate', 'Detection Rate', 'Score']
 

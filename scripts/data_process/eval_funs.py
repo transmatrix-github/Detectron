@@ -79,6 +79,7 @@ def judge_detection_results(dets, gt=None, iou=0.5):
 #     output: list of (hit rate, false rate, threshold)
 def generate_rocs(dets, categories):    
     dets.sort(key=lambda x: -x[1])
+    print dets
     fg_num = 0
     bg_num = 0
     roc = []
@@ -91,9 +92,9 @@ def generate_rocs(dets, categories):
     bg_count = 0
     for x in dets:
         if x[0] == 0:
-            fg_count += 1
-        else:
             bg_count += 1
+        else:
+            fg_count += 1
         roc.append((fg_count*1.0/fg_num, bg_count*1.0/bg_num, x[1]))
     return roc
 

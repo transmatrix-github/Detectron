@@ -66,9 +66,9 @@ def judge_detection_results(dets, gt=None, iou=0.5):
                         #max_score = max(max_score, obj1['score'])                        
                 # no matched ground truth
                 if max_score == 0:
-                    judge = (0, max_score)
+                    judge = (0, obj1['score'])
                 else:
-                    judge = (obj1['category_id'], max_score)
+                    judge = (obj1['category_id'], obj1['score'])
                 res.append(judge)             
 
     return res

@@ -55,8 +55,8 @@ def judge_detection_results(dets, gt=None, iou=0.5):
 #                         max_score = max(max_score, obj1['score'])                        
 #             judge = (1, max_score)
             # 3. judge each instance
-            max_score = 0
             for obj1 in im_det:
+                max_score = 0
                 for obj2 in gt[im_idx]:
                     if obj1['category_id'] == obj2['category_id'] and calc_iou(obj1['bbox'], obj2['bbox']) >= iou:
                         max_score = max(max_score, obj1['score'])                        

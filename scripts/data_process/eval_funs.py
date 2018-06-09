@@ -25,11 +25,50 @@ def group_bboxs(obj_list):
         im_num = max(im_num, obj['image_id'])
     return im_bboxs[:im_num + 1]
 
+
+
+def judge_detection_instances(dets, gt, iou=0.5):    
+    res = []    
+    print '%d dets to be judge' % len(dets)
+    gt_num = 0
+    ins_num = 0
+    for im_idx, im_det in enumerate(dets):
+        # find all unmatched detections
+        gt_num += len(gt[im_idx])
+        ins_num += len(im_det)
+        for (oi, obj) in enumerate(im_det):
+            max_score = 0
+            for gt_obj in gt[im_idx]:
+                if obj['category_id'] == gt_obj['category_id'] and calc_iou(obj['bbox'], gt_obj['bbox']) >= iou:
+                    max_score = obj['score']
+                    break                                
+            # no matched ground truth
+            if max_score == 0:
+                judge = (0, obj['score'], obj['category_id'])
+                im_det.pop(oi)        
+            res.append(judge) 
+        # find all matched detections with ground truth
+        for gt_obj in gt[im_idx]:
+            max_score = 0
+            for (oi, obj) in enumerate(im_det):
+                if obj['category_id'] == gt_obj['category_id'] and calc_iou(obj['bbox'], gt_obj['bbox']) >= iou:
+                    max_score = max(max_score, obj['score'])                    
+            # Note, one detection is allowed to match multiple gts
+            # Need to check COCO AP
+            if max_score != 0:
+                judge = (1, max_score, obj['category_id'])                 
+            res.append(judge)                 
+    # detection rate = sum(judge == 1) / gt_num
+    # false det rate = sum(judge == 0) / len(dets)
+    return res, gt_num, ins_num
+
+
+
 # -------------------------------------
 # judge a list, number of images, is correct or not, with score
 #     input: list of list of objects, retruned by group_bboxs
 #     output: judge results, each element is a pair (0/1, score). 0/1 means if the image is kongbao or not.
-def judge_detection_results(dets, gt=None, iou=0.5):
+def judge_detection_images(dets, gt=None, iou=0.5):
     is_kongbao = (gt is None)
     
     res = []    
@@ -61,7 +100,7 @@ def judge_detection_results(dets, gt=None, iou=0.5):
                 max_score = 0
                 for obj2 in gt[im_idx]:
                     if obj1['category_id'] == obj2['category_id'] and calc_iou(obj1['bbox'], obj2['bbox']) >= iou:
-			max_score = obj1['score']
+                        max_score = obj1['score']
                         break
                         #max_score = max(max_score, obj1['score'])                        
                 # no matched ground truth
@@ -77,25 +116,26 @@ def judge_detection_results(dets, gt=None, iou=0.5):
 # generate roc curve
 #     input: judged_detection results, 
 #     output: list of (hit rate, false rate, threshold)
-def generate_rocs(dets, categories):    
+def generate_instance_roc(dets, gt_num, ins_num):    
     dets.sort(key=lambda x: -x[1])
 #    print dets
-    fg_num = 0
-    bg_num = 0
-    roc = []
-    for x in dets:
-        if x[0] == 0:
-            bg_num += 1
-        else:
-            fg_num += 1
+#     fg_num = 0
+#     bg_num = 0
+#     roc = []
+#     for x in dets:
+#         if x[0] == 0:
+#             bg_num += 1
+#         else:
+#             fg_num += 1
     fg_count = 0
     bg_count = 0
+    roc = []
     for x in dets:
         if x[0] == 0:
             bg_count += 1
         else:
             fg_count += 1
-        roc.append((fg_count*1.0/fg_num, bg_count*1.0/bg_num, x[1]))
+        roc.append((fg_count*1.0/gt_num, bg_count*1.0/ins_num, x[1]))
     return roc
 
 

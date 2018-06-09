@@ -46,7 +46,7 @@ def judge_detection_instances(dets, gt, iou=0.5):
             if max_score == 0:
                 judge = (0, obj['score'], obj['category_id'])
                 im_det.pop(oi)        
-            res.append(judge) 
+                res.append(judge) 
         # find all matched detections with ground truth
         for gt_obj in gt[im_idx]:
             max_score = 0
@@ -57,7 +57,7 @@ def judge_detection_instances(dets, gt, iou=0.5):
             # Need to check COCO AP
             if max_score != 0:
                 judge = (1, max_score, obj['category_id'])                 
-            res.append(judge)                 
+                res.append(judge)                 
     # detection rate = sum(judge == 1) / gt_num
     # false det rate = sum(judge == 0) / len(dets)
     return res, gt_num, ins_num

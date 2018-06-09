@@ -76,7 +76,7 @@ gt_data = group_bboxs(gt_data['annotations'])
 judged_det, gt_num, ins_num = judge_detection_instances(det_data, gt_data)
 
 categories = ['knife', 'gun']
-roc = generate_rocs(judged_det, gt_num, ins_num)
+roc = generate_instance_roc(judged_det, gt_num, ins_num)
 # print roc
 false_rates = [0.01, 0.03, 0.05, 0.1]
 heads = ['False Rate', 'Detection Rate', 'Score']

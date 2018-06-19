@@ -217,9 +217,10 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
             label_path = os.path.join(label_root, line[1])
         else:
             image_path = os.path.join(image_root, line)        
-	# pickup only '_a' image
-        image_name = '.'.join(image_path.split('.')[:-1])
-        if not (image_name[-3:] == 'a_1' or image_name[-2:] == '_a'):
+	# pickup only default image
+	    filename_name = image_path.split('/')[-1]
+        image_name = '.'.join(filename_name.split('.')[:-1])
+        if not ((image_name[3:6] == 'a01' and image_name[-3] == 'a') or (image_name[3:6] == 'b01' and image_name[-3] == 'd')):
             error_list.append((5, line))
             continue
 

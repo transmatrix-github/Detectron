@@ -65,11 +65,13 @@ def parse_label_file(label_path, valid_lables = None):
     return None
 
 def get_file_list(root):
+    print 'root is %s' %root
     filelist = []
     for path, subdirs, files in os.walk(root):
         for name in files:
             filepath = os.path.join(path, name)[len(root)+1:]
             filelist.append(filepath)
+    print 'filelist len %d' % len(filelist)
     return filelist
 
 def check_image_label_pairs(image_list, label_list):    

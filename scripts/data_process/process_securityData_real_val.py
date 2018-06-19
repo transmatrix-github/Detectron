@@ -220,8 +220,6 @@ def convert_to_json(pair_list, image_root, label_root, label_set):
 
 	# pickup only default image
         filename = image_path.split('/')[-1]
-        print filename
-        print image_path
         image_name = '.'.join(filename.split('.')[:-1])
         if not ((image_name[3:6] == 'a01' and image_name[-3] == 'a') or (image_name[3:6] == 'b01' and image_name[-3] == 'd')):
             error_list.append((5, line))

@@ -7,11 +7,18 @@ mkdir -p $DATA_ROOT/train/Images/Real-Package_val
 mkdir -p $DATA_ROOT/train/Label/Real-Package_train
 mkdir -p $DATA_ROOT/train/Label/Real-Package_val
 for f in ${train_list};
-  do ln -sn $DATA_ROOT/train/Images/Real-Package/${f} $DATA_ROOT/train/Images/Real-Package_train/${f};
-  do ln -sn $DATA_ROOT/train/Label/Real-Package/${f} $DATA_ROOT/train/Label/Real-Package_train/${f};    
+  do ln -sn $DATA_ROOT/train/Images/Real-Package/${f} $DATA_ROOT/train/Images/Real-Package_train/${f}; 
+done;
+
+for f in ${train_list};
+  do ln -sn $DATA_ROOT/train/Label/Real-Package/${f} $DATA_ROOT/train/Label/Real-Package_train/${f}; 
+done; 
+
+
+for f in ${test_list};
+  do ln -sn $DATA_ROOT/train/Images/Real-Package/${f} $DATA_ROOT/train/Images/Real-Package_val/${f}; 
 done;
 
 for f in ${test_list};
-  do ln -sn $DATA_ROOT/train/Images/Real-Package/${f} $DATA_ROOT/train/Images/Real-Package_val/${f};
   do ln -sn $DATA_ROOT/train/Label/Real-Package/${f} $DATA_ROOT/train/Label/Real-Package_val/${f};    
 done;

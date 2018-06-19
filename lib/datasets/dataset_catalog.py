@@ -256,11 +256,11 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_train_Real-Package_train.json'
     },
-    'security_train_real_package_others': {
+    'security_train_real_package_minus': {
         IM_DIR:
-            _DATA_DIR + '/security/train_Real-Package_others',
+            _DATA_DIR + '/security/train_Real-Package_train',
         ANN_FN:
-            _DATA_DIR + '/security/annotations/instances_train_Real-Package_others.json'
+            _DATA_DIR + '/security/annotations/instances_train_Real-Package_train_minus.json'
     },
     'security_train_real_polyhedron': {
         IM_DIR:

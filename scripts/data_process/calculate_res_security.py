@@ -80,16 +80,19 @@ categories = ['knife', 'gun']
 roc = generate_instance_roc(judged_det, gt_num, ins_num)
 # print roc
 false_rates = [0.001, 0.005, 0.01, 0.03, 0.05, 0.1]
+hit_rates = [0.995, 0.99, 0.98, 0.95, 0.9]
 heads = ['False Rate', 'Detection Rate', 'Score']
-
 print '-------------------------------------------'
 print '%s' % '\t'.join(heads)
-
 for fr in false_rates:
     tmp = get_threshold_by_false_rate(roc, fr)
     print '%.2f\t%.2f\t%.4f' %(fr*100, tmp[0]*100, tmp[2])
 print '-------------------------------------------'
-        
+# print roc    
+for hr in hit_rates:
+    tmp = get_threshold_by_hit_rate(roc, hr)
+    print '%.2f\t%.2f\t%.4f' %(fr*100, tmp[0]*100, tmp[2])    
+print '-------------------------------------------'
 # roc = generate_roc(judged_det, judged_det2)
 # with open(os.path.join(output_root, model_name, 'pn_curve.txt'), 'wt') as fp:
 #     for line in roc:

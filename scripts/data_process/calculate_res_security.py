@@ -30,6 +30,7 @@ def get_res_folder(model):
 	     's4_ms': 'security3_e2e_faster_rcnn_R-101-FPN_ms_1x.yaml',
 	     'r1': 'security1_retinanet_R-101-FPN_1x.yaml',
 	     'rr1': 'security_r1_retinanet_R-101-FPN_1x.yaml',
+	     'rr1m': 'security_r1m_retinanet_R-101-FPN_1x.yaml',	     
 	     'r1a': 'security1a_retinanet_R-101-FPN_1x.yaml',		 		 		 
 	     'r2': 'security2_retinanet_R-101-FPN_1x.yaml',
 	     'r2p': 'security2_retinanet_R-101-FPN_1x.yaml',		 

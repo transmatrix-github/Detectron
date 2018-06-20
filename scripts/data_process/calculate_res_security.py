@@ -91,7 +91,7 @@ print '-------------------------------------------'
 # print roc    
 for hr in hit_rates:
     tmp = get_threshold_by_hit_rate(roc, hr)
-    print '%.2f\t%.2f\t%.4f' %(fr*100, tmp[0]*100, tmp[2])    
+    print '%.2f\t%.2f\t%.4f' %(tmp[1]*100, tmp[0]*100, tmp[2])    
 print '-------------------------------------------'
 # roc = generate_roc(judged_det, judged_det2)
 # with open(os.path.join(output_root, model_name, 'pn_curve.txt'), 'wt') as fp:

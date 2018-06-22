@@ -22,3 +22,8 @@ done;
 for f in ${test_list};
   do ln -sn $DATA_ROOT/train/Label/Real-Package/${f} $DATA_ROOT/train/Label/Real-Package_val/${f};    
 done;
+
+
+#hlx
+ln -sn /home/amax/data/securityData/train/Images/Real-Package/hlx20180503 /home/amax/data/securityData/train/Images/Real-Package_hlx
+ln -sn /home/amax/data/securityData/train/Label/Real-Package/hlx20180503 /home/amax/data/securityData/train/Label/Real-Package_hlx 

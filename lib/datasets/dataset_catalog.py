@@ -250,6 +250,12 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_train_Real-Package_val.json'
     },
+    'security_train_real_package_hlx': {
+        IM_DIR:
+            _DATA_DIR + '/security/train_Real-Package_hlx',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_train_Real-Package_hlx.json'
+    },    
     'security_train_real_package_train': {
         IM_DIR:
             _DATA_DIR + '/security/train_Real-Package_train',

@@ -9,6 +9,7 @@ ln -sn $DATA_ROOT/train/Images/Real-Package $LINK_ROOT/train_Real-Package
 ln -sn $DATA_ROOT/train/Images/Real-Package_others $LINK_ROOT/train_Real-Package_others
 ln -sn $DATA_ROOT/train/Images/Real-Package_train $LINK_ROOT/train_Real-Package_train
 ln -sn $DATA_ROOT/train/Images/Real-Package_val $LINK_ROOT/train_Real-Package_val
+ln -sn $DATA_ROOT/train/Images/Real-Package_hlx $LINK_ROOT/train_Real-Package_hlx
 ln -sn $DATA_ROOT/train/Images/Real-Polyhedron $LINK_ROOT/train_Real-Polyhedron
 ln -sn $DATA_ROOT/train/Images/Single-Contraband $LINK_ROOT/train_Single-Contraband
 ln -sn $DATA_ROOT/test/WJP/Dongle-Synthesis/Image $LINK_ROOT/test_Dongle-Synthesis

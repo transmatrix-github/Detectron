@@ -52,8 +52,10 @@ if __name__ == '__main__':
         sys.exit(0)
 
 output_root = '/home/amax/workspace/Detectron/detectron-output'
-val_data = 'security_train_real_package_val'
-test_data = 'security_train_real_package_val'
+# val_data = 'security_train_real_package_val'
+# test_data = 'security_train_real_package_val'
+val_data = 'security_val_real_package'
+test_data = 'security_val_real_package'
 model_name =  get_res_folder(sys.argv[1])
 gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_train_Real-Package_val.json')
 if sys.argv[1][0] == 's':

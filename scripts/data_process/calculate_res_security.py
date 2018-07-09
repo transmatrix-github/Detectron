@@ -57,7 +57,8 @@ output_root = '/home/amax/workspace/Detectron/detectron-output'
 val_data = 'security_val_real_package'
 test_data = 'security_val_real_package'
 model_name =  get_res_folder(sys.argv[1])
-gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_train_Real-Package_val.json')
+# gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_train_Real-Package_val.json')
+gt_data = load_json_file('/home/amax/data/securityData/annotations/instances_val_Real-Package.json')
 if sys.argv[1][0] == 's':
     val_res_file = os.path.join(output_root, model_name, 'test/test/%s/generalized_rcnn/bbox_%s_results.json' % (val_data, val_data))
     if os.path.exists(val_res_file):

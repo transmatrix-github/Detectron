@@ -25,17 +25,13 @@ train_sets = ['Alg-Synthesis',
               'Real-Polyhedron', 
               'Single-Contraband']
 
-test_sets = ['Dongle-Synthesis',
-                 'HLX_20180129',
-                 'MZL_Test_0415']
+test_sets = ['Real-Package']
 
 kb_sets = ['MZL_KongBao_Image',
                'Travel-Packages',
                'ZhongYunZhiHui']
 
-datasets = {'train' : train_sets,
-           'val': test_sets,
-           'test': kb_sets}
+datasets = {'val': test_sets}
 
 def get_data_root(dataset, is_image = True, data_type = 'train'):
     if data_type == 'train':

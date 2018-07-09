@@ -298,6 +298,12 @@ DATASETS = {
         ANN_FN:
             _DATA_DIR + '/security/annotations/instances_val_MZL_Test_0415.json'
     },
+    'security_val_real_package': {
+        IM_DIR:
+            _DATA_DIR + '/security/test_Real-Package',
+        ANN_FN:
+            _DATA_DIR + '/security/annotations/instances_val_Real-Package.json'
+    },
     'security_test_mzl_kongbao': {
         IM_DIR:
             _DATA_DIR + '/security/test_MZL_KongBao_Image',

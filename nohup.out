@@ -1,0 +1,18 @@
+Found Detectron ops lib: /usr/local/lib/libcaffe2_detectron_ops_gpu.so
+INFO test_net.py:  97: Called with args:
+INFO test_net.py:  98: Namespace(cfg_file='/home/amax/workspace/Detectron/configs/exps/security_r1_retinanet_R-101-FPN_1x.yaml', multi_gpu_testing=False, opts=['TEST.WEIGHTS', './detectron-output/security_r1_retinanet_R-101-FPN_1x.yaml/train/security_train_real_package_train/retinanet/model_final.pkl', ' '], range=None, vis=False, wait=True)
+Traceback (most recent call last):
+  File "/home/amax/workspace/Detectron/tools/test_net.py", line 102, in <module>
+    merge_cfg_from_list(args.opts)
+  File "/home/amax/workspace/Detectron/lib/core/config.py", line 1109, in merge_cfg_from_list
+    assert len(cfg_list) % 2 == 0
+AssertionError
+Found Detectron ops lib: /usr/local/lib/libcaffe2_detectron_ops_gpu.so
+INFO test_net.py:  97: Called with args:
+INFO test_net.py:  98: Namespace(cfg_file='/home/amax/workspace/Detectron/configs/exps/security_r1_retinanet_R-101-FPN_1x.yaml', multi_gpu_testing=False, opts=['TEST.WEIGHTS', './detectron-output/security_r1_retinanet_R-101-FPN_1x.yaml/train/security_train_real_package_train/retinanet/model_final.pkl', ' '], range=None, vis=False, wait=True)
+Traceback (most recent call last):
+  File "/home/amax/workspace/Detectron/tools/test_net.py", line 102, in <module>
+    merge_cfg_from_list(args.opts)
+  File "/home/amax/workspace/Detectron/lib/core/config.py", line 1109, in merge_cfg_from_list
+    assert len(cfg_list) % 2 == 0
+AssertionError

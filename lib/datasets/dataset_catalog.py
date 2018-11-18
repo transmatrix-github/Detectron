@@ -201,6 +201,13 @@ DATASETS = {
         DEVKIT_DIR:
             _DATA_DIR + '/VOC2012/VOCdevkit2012'
     },
+#add tower_dataset
+    'tower_train_2018oct': {
+        IM_DIR:
+            _DATA_DIR + '/tower/train_2018oct',
+        ANN_FN:
+            _DATA_DIR + '/tower/annotations/instances_train_2018oct.json'
+    },
 #add security dataset
     'security_20180501_train': {
         IM_DIR:

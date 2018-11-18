@@ -11,7 +11,7 @@ from PIL import Image
 reload(sys)  # Reload does the trick!
 sys.setdefaultencoding('UTF8')
 
-data_root = '/home/amax/data/towerData'
+data_root = '/home/amax/data/towerData/towerData'
 image_root = os.path.join(data_root, 'XD_301_30_10_20180906')
 json_root = os.path.join(data_root, 'annotations')
 if not os.path.exists(json_root):
